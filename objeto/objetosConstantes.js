@@ -1,12 +1,12 @@
 //pessoa --> 123 --> {...}
 const pessoa = {nome: 'João'}
 pessoa.nome = 'Pedro'
-//console.log(pessoa);
+console.log(pessoa); //= {nome : 'Pedro}
 
 // pessoa <-456-> {...}
 //pessoa = {nome:'Ana'}
 
-Object.freeze(pessoa)//obj constante e seus dados
+Object.freeze(pessoa)//obj e seus dados constantes
 
 pessoa.nome = 'Maria'
 pessoa.end = 'Rua ABC'

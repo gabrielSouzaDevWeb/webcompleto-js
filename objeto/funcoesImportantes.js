@@ -3,16 +3,16 @@ const pessoa = {
     idade: 2,
     peso: 13
 }
+ 
+console.log('l.7: ',Object.keys(pessoa));//Resgata todas as chaves de um objeto in A
+console.log('l.8: ',Object.values(pessoa));//Resgata todos os valores de um objeto in A
+console.log('l.9: ',Object.entries(pessoa));//Resgata todas as chaves e valores A in A
 
-console.log('l.7: ',Object.keys(pessoa));//1
-console.log('l.8: ',Object.values(pessoa));//2
-console.log('l.9: ',Object.entries(pessoa));//3
-
-Object.entries(pessoa).forEach(([chave,valor])=>{
+Object.entries(pessoa).forEach(([chave,valor])=>{//transformou um array de duas posições em duas variáveis
     console.log(`${chave}: ${valor}`);
 })
 
-Object.defineProperty(pessoa, 'dataNascimento',{
+Object.defineProperty(pessoa, 'dataNascimento',{ // maior poder a na definição de uma propriedade
     enumerable:true,
     writable:false,
     value: '01/01/2019'
