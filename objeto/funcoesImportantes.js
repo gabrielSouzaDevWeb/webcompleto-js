@@ -25,7 +25,7 @@ console.log(Object.keys(pessoa));
 const dest = {a:1}
 const o1= {b:2}
 const o2 = {c:3,a:4}
-const obj = Object.assign(dest,o1,o2)//5
+const obj = Object.assign(dest,o1,o2)// concatenação de atributos de um obj em outro !sobreescreve
 
 Object.freeze(obj)//6
 obj.c = 1234
