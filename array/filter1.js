@@ -11,3 +11,13 @@ console.log(produto.filter(function(p){
 const isFragil = e=>e.preco >= 500
 const isCaro = e=>e.fragil
 console.log(produto.filter(isFragil).filter(isCaro));
+
+/**
+ * o filter() transforma um antigo array em um novo
+ * porém com a quantidade de elementos reduzidas mediante
+ * uma regra de negócio
+ * 
+ * funciona como um filtro de dados no qual se ele
+ * corresponder as condições ele é adicionado a o novo
+ * array
+ */

@@ -7,6 +7,15 @@ Array.prototype.filter2 = function(callback) {
     }    
     return newArray
 }
+/**
+ * o filter() transforma um antigo array em um novo
+ * porém com a quantidade de elementos reduzidas mediante
+ * uma regra de negócio
+ * 
+ * funciona como um filtro de dados no qual se ele
+ * corresponder as condições ele é adicionado a o novo
+ * array
+ */
 
 const produto = [
     {nome: 'Notebook', preco: 2499,fragil:true},
