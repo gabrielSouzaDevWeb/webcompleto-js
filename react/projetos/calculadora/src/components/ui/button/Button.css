@@ -16,18 +16,18 @@
   background-color: #ccc;
 }
 
-.button--double {
+.button.double {
   grid-column: span 2;
 }
-.button--triple {
+.button.triple {
   grid-column: span 3;
 }
 
-.button--operation {
+.button.operation {
   background-color: #fa8231;
   color: var(--bg-gutton);
 }
 
-.button--operation:active {
+.button.operation:active {
   background-color: #fa8231cc;
 }

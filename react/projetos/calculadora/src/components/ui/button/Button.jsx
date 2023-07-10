@@ -7,7 +7,15 @@ export default class Button extends Component {
     super(props);
   }
   render() {
-    const { label, operation, double, triple } = this.state;
+    const {
+      label,
+      operation,
+      double,
+      triple,
+      click = () => {
+        console.error('click fun is undefined');
+      },
+    } = this.state;
     return (
       <button
         className={`button
@@ -15,6 +23,7 @@ export default class Button extends Component {
     ${double ? 'double' : ''}
     ${triple ? 'triple' : ''}
     `}
+        onClick={(e) => click(label)}
       >
         {label}
       </button>
