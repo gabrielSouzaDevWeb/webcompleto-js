@@ -7,7 +7,7 @@ export default class Display extends Component {
     super(props);
   }
   render() {
-    const { value } = this.state;
+    const { value } = this.props;
     return <div className="display">{value}</div>;
   }
 }

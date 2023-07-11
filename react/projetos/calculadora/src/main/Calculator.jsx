@@ -21,10 +21,37 @@ export default class Calculator extends Component {
   }
 
   clearMemory() {
-    this.state = this.initialState;
+    // this.state = this.initialState;
+    this.setState(this.initialState);
   }
   setOperation(operation) {
-    console.log(operation);
+    const { current, values } = this.state;
+    if (current === 0) {
+      this.setState({
+        operation,
+        current: 1,
+        clearDisplay: true,
+      });
+    } else {
+      const equals = operation === '=';
+      const currentOperation = this.state.operation;
+      const valuesClone = values;
+      try {
+        valuesClone[0] = eval(
+          `${valuesClone[0]} ${currentOperation} ${valuesClone[1]}`
+        );
+      } catch (e) {
+        valuesClone[0] = values[0];
+      }
+      values[1] = 0;
+      this.setState({
+        displayValue: valuesClone[0],
+        operation: equals ? null : operation,
+        current: equals ? 0 : 1,
+        clearDisplay: !equals,
+        valuesClone,
+      });
+    }
   }
   addDigit(n) {
     if (
@@ -40,11 +67,20 @@ export default class Calculator extends Component {
       ? ''
       : this.state.displayValue;
     const displayValue = currentValue + n;
-    console.log(displayValue);
+
     this.setState({
       displayValue,
       clearDisplay: false,
     });
+
+    if (n !== '.') {
+      const i = this.state.current;
+      const newValue = parseFloat(displayValue);
+      const values = this.state.values;
+      values[i] = newValue;
+      this.setState({ values });
+      console.log(values);
+    }
   }
 
   render() {
@@ -87,8 +123,12 @@ export default class Calculator extends Component {
           operation
         />
         <Button label="0" click={this.addDigit} double />
-        <Button label="." />
-        <Button label="=" operation />
+        <Button label="." click={this.addDigit} />
+        <Button
+          label="="
+          operation
+          click={this.setOperation}
+        />
       </div>
     );
   }
